@@ -1,79 +1,110 @@
+# Re-creating the HTML content after environment reset
+
+movie_app_html = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Gallery</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FilmHaven Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      padding: 10px;
+      background-color: #111;
+      color: #fff;
     }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
     }
     .movie-card {
-      margin: 10px;
-      background-color: white;
-      border-radius: 8px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
     .movie-card img {
-      width: 200px;
-      height: 300px;
+      width: 100%;
+      height: 240px;
       object-fit: cover;
     }
-    .movie-card .movie-title {
+    .movie-info {
       padding: 10px;
-      font-size: 18px;
-      font-weight: bold;
     }
-    .ads {
+    .movie-info h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    .movie-info p {
+      margin: 4px 0 0;
+      font-size: 13px;
+      color: #bbb;
+    }
+    .ad-box {
+      background: #222;
       text-align: center;
       padding: 20px;
+      margin: 20px 0;
+      border: 2px dashed #555;
+      border-radius: 10px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <h1 style="text-align:center; padding: 20px 0;">Movie Gallery</h1>
-
-  <!-- Advertisement section -->
-  <div class="ads">
-    <!-- Monitak Network Ad Code (Replace with your actual ad code) -->
-    <script async src="https://cdn.monitak.com/your_ad_code.js"></script>
+  <h2>FilmHaven: Movie Previews</h2>
+  <div class="ad-box">
+    [Monitak Ad Placeholder] <br />
+    (এখানে আপনার বিজ্ঞাপন কোড বসাবেন)
   </div>
-
-  <!-- Movie Poster Gallery -->
-  <div class="container">
+  <div class="movie-grid">
     <div class="movie-card">
-      <img src="movie1-poster.jpg" alt="Movie 1 Poster">
-      <div class="movie-title">Movie Title 1</div>
-      <a href="movie1-trailer.html">Watch Trailer</a>
+      <img src="https://image.tmdb.org/t/p/w500/kjQBrc00fB2RjHZB3PGR4w9ibpz.jpg" alt="Movie 1">
+      <div class="movie-info">
+        <h3>Dune: Part Two</h3>
+        <p>2024 • Action, Sci-Fi</p>
+      </div>
     </div>
     <div class="movie-card">
-      <img src="movie2-poster.jpg" alt="Movie 2 Poster">
-      <div class="movie-title">Movie Title 2</div>
-      <a href="movie2-trailer.html">Watch Trailer</a>
+      <img src="https://image.tmdb.org/t/p/w500/p1LbrdJ53dGfEhRopG71akfzOVu.jpg" alt="Movie 2">
+      <div class="movie-info">
+        <h3>Kung Fu Panda 4</h3>
+        <p>2024 • Animation, Comedy</p>
+      </div>
     </div>
     <div class="movie-card">
-      <img src="movie3-poster.jpg" alt="Movie 3 Poster">
-      <div class="movie-title">Movie Title 3</div>
-      <a href="movie3-trailer.html">Watch Trailer</a>
+      <img src="https://image.tmdb.org/t/p/w500/vI3aUGTuRRdM53udpcLhJLxMhoR.jpg" alt="Movie 3">
+      <div class="movie-info">
+        <h3>Godzilla x Kong</h3>
+        <p>2024 • Action, Adventure</p>
+      </div>
     </div>
-    <!-- Add more movie cards as needed -->
-  </div>
-
-  <!-- Another Advertisement section -->
-  <div class="ads">
-    <!-- Monitak Network Ad Code (Replace with your actual ad code) -->
-    <script async src="<script src='//whephiwums.com/sdk.js' data-zone='9201025' data-sdk='show_9201025'></script>"></script>
+    <div class="movie-card">
+      <img src="https://image.tmdb.org/t/p/w500/eDps1JpDsbFZ8zAQtbnYx9Fqz3M.jpg" alt="Movie 4">
+      <div class="movie-info">
+        <h3>Shogun</h3>
+        <p>2024 • Drama, History</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="https://image.tmdb.org/t/p/w500/m1vgTRmJMiCt0Na7yeYv2efB6K8.jpg" alt="Movie 5">
+      <div class="movie-info">
+        <h3>Rebel Moon</h3>
+        <p>2023 • Sci-Fi, Fantasy</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>
+"""
+
+# Save the file again after reset
+html_path = "/mnt/data/FilmHaven_Mini_App.html"
+with open(html_path, "w") as file:
+    file.write(movie_app_html)
+
+html_path
